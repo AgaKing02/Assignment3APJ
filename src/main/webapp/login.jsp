@@ -5,6 +5,7 @@
   Time: 13:09
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,6 +18,11 @@
         <div class="card">
             <div class="card-header">
                 <i class="fa fa-user"></i> Please Login or <br>
+                    <i class="fa fa-user text-danger">${error}</i><br>
+
+
+
+
                 <a class="btn btn-outline-primary" href="<%=request.getContextPath()%>/signup" >Sign up</a>
 
             </div>
