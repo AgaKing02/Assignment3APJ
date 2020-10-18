@@ -24,7 +24,7 @@
     <h1 class="text-center border border-warning">Order Info</h1>
     <div class="row p-1">
         <c:forEach var="order" items="${my}">
-            <div style="border: 1px solid black" class="col-2 text-center">
+            <div style="border: 1px solid black" class="col-3 text-center p-2 rounded shadow">
                 <p>${order.getId()} order</p>
                 <p>${order.getProduct_id()} with product_id</p>
                 <div class="spinner-border text-warning" role="status">
