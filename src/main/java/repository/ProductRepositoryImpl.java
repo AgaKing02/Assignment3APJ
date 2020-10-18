@@ -35,7 +35,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 return new Product(
-                        (long) rs.getInt("id"),
+                        rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("description"),
                         rs.getInt("price"),
@@ -72,7 +72,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             LinkedList<Product> products = new LinkedList<>();
             while (rs.next()) {
                 Product product = new Product(
-                        (long) rs.getInt("id"),
+                        rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("description"),
                         rs.getInt("price"),
@@ -95,6 +95,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
                 return new Product(
+                        rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("description"),
                         rs.getInt("price"),

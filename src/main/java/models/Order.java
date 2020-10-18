@@ -3,15 +3,15 @@ package models;
 public class Order {
     public int id;
     public String username;
-    public Long product_id;
+    public int product_id;
 
-    public Order(int id, String username, Long product_id) {
+    public Order(int id, String username, int product_id) {
         this.id = id;
         this.username = username;
         this.product_id = product_id;
     }
 
-    public Order(String username, Long  product_id) {
+    public Order(String username, int product_id) {
         this.username = username;
         this.product_id = product_id;
     }
@@ -35,11 +35,11 @@ public class Order {
         this.username = username;
     }
 
-    public Long getProduct_id() {
+    public int getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(Long product_id) {
+    public void setProduct_id(int product_id) {
         this.product_id = product_id;
     }
 

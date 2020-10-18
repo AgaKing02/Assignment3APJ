@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 public class Product implements Comparable<Product> {
 
-    public Long id;
+    public int id;
 
     public String name;
 
@@ -31,7 +31,7 @@ public class Product implements Comparable<Product> {
         this.category = category;
     }
 
-    public Product(Long id, String name, String description, int price, String size, String image_url, String category) {
+    public Product(int id, String name, String description, int price, String size, String image_url, String category) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -92,10 +92,13 @@ public class Product implements Comparable<Product> {
         this.category = category;
     }
 
-    public Long getID() {
+    public int getID() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {

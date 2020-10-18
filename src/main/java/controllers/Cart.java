@@ -40,9 +40,7 @@ public class Cart extends HttpServlet {
         assert myProducts != null;
         List<Product> ordered=myProducts.getProductList();
         String finalUsername = username;
-        for (Product product:ordered) {
-            orderRepository.add(new Order(username,product.getID()));
-        }
+       ordered.forEach(e->orderRepository.add(new Order(finalUsername,e.getID())));
         response.sendRedirect(request.getContextPath()+"/order");
     }
 

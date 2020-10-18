@@ -15,9 +15,15 @@
 <jsp:include page="blocks/header.jsp"/>
 
 <div class="container text-center">
-    <form class="row" action="<%=request.getContextPath()%>/confirm" method="post">
+    <div class="row">
+        <div  class="col-4"><button id="Smartphone" onclick="action(this.id)" class="btn btn-success">Smartphone</button></div>
+        <div  class="col-4"><button id="House" onclick="action(this.id)" class="btn btn-warning">House</button></div>
+        <div  class="col-4"><button id="Game" onclick="action(this.id)" class="btn btn-primary">Game</button></div>
+    </div>
+    <form action="<%=request.getContextPath()%>/confirm" method="post">
+        <div id="row" class="row">
         <c:forEach items="${products}" var="product">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center shadow rounded pt-5 my-5">
+            <div  class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-center shadow rounded pt-5 my-5 ${product.getCategory()}">
 
                 <img src="${product.getImage_url()}" alt="${product.getName()}" style="height: 200px;max-width: 200px;">
                 <h2>${product.getName()}</h2>
@@ -53,13 +59,22 @@
                 </div>
 
         </c:forEach>
+        </div>
         <br>
-        <div class="text-center"><input type="submit" class="btn btn-outline-primary" value="Add to Cart"></div>
-
+        <div id="addtocart" class="text-center"><input type="submit" class="btn btn-outline-primary" value="Add to Cart"></div>
     </form>
+
 </div>
 <a class="btn btn-success" style="margin-left: 15px;" href='<%=request.getContextPath()+"/main?sort_by=price"%>'>Sort by Price</a>
 <jsp:include page="blocks/footer.jsp"/>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function action(classname) {
+        $("." + classname).removeClass("d-none");
+        $('#row > *').not($('.' + classname)).addClass('d-none');
+        $('#addtocart').removeClass('d-none');
+    }
+</script>
 </html>

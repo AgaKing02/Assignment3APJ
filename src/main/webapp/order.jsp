@@ -13,16 +13,30 @@
 </head>
 <body>
 <jsp:include page="blocks/header.jsp"/>
+<h1 class="text-center border border-warning">Session Info</h1>
 <c:forEach var="type" items="${hash}">
     Key is ${type.key}
     Value is ${type.value}
     <br>
 </c:forEach>
-<c:forEach var="order" items="${my}">
-    Order
-  <p>${order.getId()}</p>
-    <br>
-</c:forEach>
+
+<c:if test="${my!=null}">
+    <h1 class="text-center border border-warning">Order Info</h1>
+    <div class="row p-1">
+        <c:forEach var="order" items="${my}">
+            <div style="border: 1px solid black" class="col-3 text-center">
+                <p>${order.getId()} order</p>
+                <p>${order.getProduct_id()} with product_id</p>
+                <div class="spinner-border text-warning" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</c:if>
+<c:if test="${my==null}">
+    <h1 class="text-center border border-warning">No orders yet</h1>
+</c:if>
 <jsp:include page="blocks/footer.jsp"/>
 
 

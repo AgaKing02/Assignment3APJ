@@ -25,11 +25,10 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public void add(Order entity) {
         try {
-            String sql = "INSERT INTO orders(username,product_id) " +
-                    "VALUES(?, ?)";
+            String sql = "INSERT INTO orders(username,product_id) VALUES(?, ?);";
             PreparedStatement stmt = dbrepo.getConnection().prepareStatement(sql);
             stmt.setString(1, entity.getUsername());
-            stmt.setInt(2, entity.getId());
+            stmt.setInt(2, entity.getProduct_id());
             stmt.execute();
         } catch (SQLException ex) {
             throw new BadRequestException("Cannot run SQL statement: " + ex.getMessage());
@@ -56,7 +55,7 @@ public class OrderRepositoryImpl implements OrderRepository {
                 Order order = new Order(
                         rs.getInt("id"),
                         rs.getString("username"),
-                        rs.getLong("product_id")
+                        rs.getInt("product_id")
                 );
                 orders.add(order);
             }
