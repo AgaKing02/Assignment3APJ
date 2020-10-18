@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="blocks/header.jsp"/>
 <div class="container">
-    <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
+    <div style="width:75%;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
         <div class="card">
             <div class="card-header">
                 <i class="fa fa-user"></i> Please Sign up or <br>
