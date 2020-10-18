@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: HP
@@ -330,6 +331,9 @@
                                     <div class="card-body">
                                         <div class="timeline-item-header">
                                             <h1>Statistics</h1>
+                                            <c:forEach items="${info}" var="infos" >
+                                                <p>${infos}</p>
+                                            </c:forEach>
                                         </div>
                                     </div>
                                 </div>

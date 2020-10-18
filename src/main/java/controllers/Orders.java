@@ -19,12 +19,13 @@ public class Orders extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean userExistence=false;
-
+        String username=null;
         Cookie[] cookies =request.getCookies();
         //Displaying User name value from cookie
         for (Cookie cookie:cookies){
             if(cookie.getName().equals("username")){
                 userExistence=true;
+                username=cookie.getValue();
                 break;
             }
         }
@@ -36,9 +37,10 @@ public class Orders extends HttpServlet {
         stringObjectMap.put("visit",Main.iHitCounter);
         stringObjectMap.put("sessioncreation",new Date(session.getCreationTime()));
         stringObjectMap.put("lastAccess",new Date(session.getLastAccessedTime()));
-
-
         request.setAttribute("hash",stringObjectMap);
+
+        List<Order> orders=orderRepository.getMyOrders(username);
+        request.setAttribute("my",orders);
         request.getRequestDispatcher("/order.jsp").forward(request,response);
     }
 }

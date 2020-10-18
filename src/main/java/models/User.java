@@ -34,6 +34,7 @@ public class User {
         setRole(role);
     }
 
+
     public User(long id, String name, String surname, String username, Date birthday, String role) {
         this.id = id;
         this.name = name;
@@ -42,6 +43,8 @@ public class User {
         this.birthday = birthday;
         setRole(role);
     }
+
+
 
     public long getId() {
         return id;

@@ -18,6 +18,11 @@
     Value is ${type.value}
     <br>
 </c:forEach>
+<c:forEach var="order" items="${my}">
+    Order
+  <p>${order.getId()}</p>
+    <br>
+</c:forEach>
 <jsp:include page="blocks/footer.jsp"/>
 
 
