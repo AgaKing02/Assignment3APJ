@@ -14,12 +14,14 @@
         page-inner.no-page-title {
             padding-top: 30px;
         }
+
         .page-inner {
             position: relative;
             min-height: calc(100% - 56px);
             padding: 20px 30px 40px 30px;
             background: #f3f4f7;
         }
+
         .card.card-white {
             background-color: #fff;
             border: 1px solid transparent;
@@ -27,13 +29,16 @@
             box-shadow: 0 0.05rem 0.01rem rgba(75, 75, 90, 0.075);
             padding: 25px;
         }
+
         .grid-margin {
             margin-bottom: 2rem;
         }
+
         .profile-timeline ul li .timeline-item-header {
             width: 100%;
             overflow: hidden;
         }
+
         .profile-timeline ul li .timeline-item-header img {
             width: 40px;
             height: 40px;
@@ -41,27 +46,33 @@
             margin-right: 10px;
             border-radius: 50%;
         }
+
         .profile-timeline ul li .timeline-item-header p {
             margin: 0;
             color: #000;
             font-weight: 500;
         }
+
         .profile-timeline ul li .timeline-item-header p span {
             margin: 0;
             color: #8e8e8e;
             font-weight: normal;
         }
+
         .profile-timeline ul li .timeline-item-header small {
             margin: 0;
             color: #8e8e8e;
         }
+
         .profile-timeline ul li .timeline-item-post {
             padding: 20px 0 0 0;
             position: relative;
         }
+
         .profile-timeline ul li .timeline-item-post > img {
             width: 100%;
         }
+
         .timeline-options {
             overflow: hidden;
             margin-top: 20px;
@@ -69,6 +80,7 @@
             border-bottom: 1px solid #f1f1f1;
             padding: 10px 0 10px 0;
         }
+
         .timeline-options a {
             display: block;
             margin-right: 20px;
@@ -76,12 +88,15 @@
             color: #2b2b2b;
             text-decoration: none;
         }
+
         .timeline-options a i {
             margin-right: 3px;
         }
+
         .timeline-options a:hover {
             color: #5369f8;
         }
+
         .timeline-comment {
             overflow: hidden;
             margin-bottom: 10px;
@@ -89,36 +104,43 @@
             border-bottom: 1px solid #f1f1f1;
             padding-bottom: 5px;
         }
+
         .timeline-comment .timeline-comment-header {
             overflow: hidden;
         }
+
         .timeline-comment .timeline-comment-header img {
             width: 30px;
             border-radius: 50%;
             float: left;
             margin-right: 10px;
         }
+
         .timeline-comment .timeline-comment-header p {
             color: #000;
             float: left;
             margin: 0;
             font-weight: 500;
         }
+
         .timeline-comment .timeline-comment-header small {
             font-weight: normal;
             color: #8e8e8e;
         }
+
         .timeline-comment p.timeline-comment-text {
             display: block;
             color: #2b2b2b;
             font-size: 14px;
             padding-left: 40px;
         }
+
         .post-options {
             overflow: hidden;
             margin-top: 15px;
             margin-left: 15px;
         }
+
         .post-options a {
             display: block;
             margin-top: 5px;
@@ -128,9 +150,11 @@
             text-decoration: none;
             font-size: 16px !important;
         }
+
         .post-options a:hover {
             color: #5369f8;
         }
+
         .online {
             position: absolute;
             top: 2px;
@@ -141,36 +165,46 @@
             border-radius: 50%;
             background: #ccc;
         }
+
         .online.on {
             background: #2ec5d3;
         }
+
         .online.off {
             background: #ec5e69;
         }
+
         #cd-timeline::before {
             border: 0;
             background: #f1f1f1;
         }
+
         .cd-timeline-content p,
         .cd-timeline-content .cd-read-more,
         .cd-timeline-content .cd-date {
             font-size: 14px;
         }
+
         .cd-timeline-img.cd-success {
             background: #2ec5d3;
         }
+
         .cd-timeline-img.cd-danger {
             background: #ec5e69;
         }
+
         .cd-timeline-img.cd-info {
             background: #5893df;
         }
+
         .cd-timeline-img.cd-warning {
             background: #f1c205;
         }
+
         .cd-timeline-img.cd-primary {
             background: #9f7ce1;
         }
+
         .page-inner.full-page {
             display: -webkit-box;
             display: -moz-box;
@@ -178,14 +212,17 @@
             display: -webkit-flex;
             display: flex;
         }
+
         .user-profile-card {
             text-align: center;
         }
+
         .user-profile-image {
             width: 100px;
             height: 100px;
             margin-bottom: 10px;
         }
+
         .team .team-member {
             display: block;
             overflow: hidden;
@@ -193,19 +230,23 @@
             float: left;
             position: relative;
         }
+
         .team .team-member .online {
             top: 5px;
             right: 5px;
         }
+
         .team .team-member img {
             width: 40px;
             float: left;
             border-radius: 50%;
             margin: 0 5px 0 5px;
         }
+
         .label.label-success {
             background: #43d39e;
         }
+
         .label {
             font-weight: 400;
             padding: 4px 8px;
@@ -238,19 +279,22 @@
                         <div class="card-body user-profile-card mb-3">
                             <h1>${username}</h1>
                             <button class="btn btn-theme btn-sm">Follow</button>
+                            <c:if test="${cookie.role.value=='ADMIN'}">
+                                <a class="btn btn-theme btn-sm" href='<%=request.getContextPath()+"/controlpanel"%>'>Control Panel</a></c:if>
                             <form method="post" action='<%=request.getContextPath()+"/profile"%>'>
                                 <input type="submit" class="btn btn-outline-warning " value="Logout">
                             </form>
                         </div>
-                        <hr />
-                        <hr />
+                        <hr/>
+                        <hr/>
                         <div class="card-heading clearfix mt-3">
                             <h4 class="card-title">About</h4>
                         </div>
                         <div class="card-body mb-3">
-                            <p class="mb-0">Lorem ipsum dolor sitelt amet, consectetur adipis icing elit, sed do eiusmod tempor incididunt utitily labore et dolore magna aliqua metavta.</p>
+                            <p class="mb-0">Lorem ipsum dolor sitelt amet, consectetur adipis icing elit, sed do eiusmod
+                                tempor incididunt utitily labore et dolore magna aliqua metavta.</p>
                         </div>
-                        <hr />
+                        <hr/>
                         <div class="card-heading clearfix mt-3">
                             <h4 class="card-title">Contact Information</h4>
                         </div>
@@ -331,7 +375,7 @@
                                     <div class="card-body">
                                         <div class="timeline-item-header">
                                             <h1>Statistics</h1>
-                                            <c:forEach items="${info}" var="infos" >
+                                            <c:forEach items="${info}" var="infos">
                                                 <p>${infos}</p>
                                             </c:forEach>
                                         </div>
@@ -350,15 +394,15 @@
                             <div class="team">
                                 <div class="team-member">
                                     <div class="online on"></div>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
                                 </div>
                                 <div class="team-member">
                                     <div class="online on"></div>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
                                 </div>
                                 <div class="team-member">
                                     <div class="online off"></div>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
                                 </div>
                             </div>
                         </div>
@@ -368,7 +412,9 @@
                             <h4 class="card-title">Some Info</h4>
                         </div>
                         <div class="card-body">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis architecto.</p>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                                architecto.</p>
                         </div>
                     </div>
                 </div>

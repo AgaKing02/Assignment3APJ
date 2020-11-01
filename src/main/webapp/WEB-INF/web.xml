@@ -6,7 +6,7 @@
     <!--Servlet Mappings-->
     <servlet>
         <servlet-name>Main</servlet-name>
-        <servlet-class>controllers.Main</servlet-class>
+        <servlet-class>kz.edu.astanait.controllers.Main</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Main</servlet-name>
@@ -14,7 +14,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Authorization</servlet-name>
-        <servlet-class>controllers.Authorization</servlet-class>
+        <servlet-class>kz.edu.astanait.controllers.Authorization</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Authorization</servlet-name>
@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Authentication</servlet-name>
-        <servlet-class>controllers.Authentication</servlet-class>
+        <servlet-class>kz.edu.astanait.controllers.Authentication</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
@@ -30,7 +30,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Profile</servlet-name>
-        <servlet-class>controllers.Profile</servlet-class>
+        <servlet-class>kz.edu.astanait.controllers.Profile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Profile</servlet-name>
@@ -38,7 +38,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Confirmation</servlet-name>
-        <servlet-class>controllers.Confirmation</servlet-class>
+        <servlet-class>kz.edu.astanait.controllers.Confirmation</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Confirmation</servlet-name>
@@ -46,7 +46,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Cart</servlet-name>
-        <servlet-class>controllers.Cart</servlet-class>
+        <servlet-class>kz.edu.astanait.controllers.Cart</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Cart</servlet-name>
@@ -54,11 +54,80 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Order</servlet-name>
-        <servlet-class>controllers.Orders</servlet-class>
+        <servlet-class>kz.edu.astanait.controllers.Orders</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Order</servlet-name>
         <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>OrderRemove</servlet-name>
+        <servlet-class>kz.edu.astanait.controllers.control.OrderRemove</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderRemove</servlet-name>
+        <url-pattern>/orderremove</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ControlPanel</servlet-name>
+        <servlet-class>kz.edu.astanait.controllers.control.ControlPanel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControlPanel</servlet-name>
+        <url-pattern>/controlpanel</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddBook</servlet-name>
+        <servlet-class>kz.edu.astanait.controllers.control.AddBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBook</servlet-name>
+        <url-pattern>/add/book</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditBook</servlet-name>
+        <servlet-class>kz.edu.astanait.controllers.control.EditBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditBook</servlet-name>
+        <url-pattern>/books</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditDetailed</servlet-name>
+        <servlet-class>kz.edu.astanait.controllers.control.EditBookDetailed</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditDetailed</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditReader</servlet-name>
+        <servlet-class>kz.edu.astanait.controllers.control.EditReader</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditReader</servlet-name>
+        <url-pattern>/reader</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>removeReader</servlet-name>
+        <servlet-class>kz.edu.astanait.controllers.control.EditReaderDetailed</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeReader</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Jersey Rest Service</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>kz.edu.astanait</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Rest Service</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 
 <!--INIT PARAMETERs-->

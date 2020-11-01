@@ -16,9 +16,7 @@
     <div style="width:75%;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-user"></i> Please Sign up or <br>
-                <a class="btn btn-outline-primary" href="<%=request.getContextPath()%>/login" >Sign in</a>
-
+                <i class="fa fa-user"></i>Register the Reader<br>
             </div>
             <div class="card-block" style="padding: 24px;">
                 <form name="f" action="<%=request.getContextPath()%>/signup" method="post">
@@ -51,7 +49,7 @@
 
                         <!-- Login Button -->
                         <div class="form-actions" style="margin-top: 12px;">
-                            <button type="submit" class="btn btn-success">Log in</button>
+                            <button type="submit" class="btn btn-success">Add Reader</button>
                         </div>
                     </fieldset>
                 </form>

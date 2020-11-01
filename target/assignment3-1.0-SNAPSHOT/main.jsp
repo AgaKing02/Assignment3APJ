@@ -9,42 +9,44 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>controllers.Main</title>
+    <title>kz.edu.astanait.controllers.Main</title>
 </head>
 <body>
 <jsp:include page="blocks/header.jsp"/>
 
+
 <div class="container text-center">
     <div class="row">
         <div class="col-3"><a class="btn btn-info" style="margin-left: 15px;"
-                              href='<%=request.getContextPath()+"/main?sort_by=price"%>'>Sort by Price</a>
+                              href='<%=request.getContextPath()+"/main?sort_by=price"%>'>Sort by Popularity</a>
         </div>
-        <div class="col-3">
-            <button id="Smartphone" onclick="action(this.id)" class="btn btn-success">Smartphone</button>
-        </div>
-        <div class="col-3">
-            <button id="House" onclick="action(this.id)" class="btn btn-warning">House</button>
-        </div>
-        <div class="col-3">
-            <button id="Game" onclick="action(this.id)" class="btn btn-primary">Game</button>
-        </div>
+        <c:forEach items="${authors}" var="author">
+            <div class="col-3">
+                <button id="${author}" onclick="action(this.id)" class="btn btn-light shadow">${author}</button>
+            </div>
+        </c:forEach>
     </div>
+
     <form action="<%=request.getContextPath()%>/confirm" method="post">
         <div id="row" class="row">
-            <c:forEach items="${products}" var="product">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-center shadow rounded pt-5 my-5 ${product.getCategory()}">
-
-                    <img src="${product.getImage_url()}" alt="${product.getName()}"
+            <c:forEach items="${books}" var="book">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-center shadow rounded pt-5 my-5 ${book.getAuthor()}">
+                    <img src="${book.getImage()}" alt="${book.getName()}"
                          style="height: 200px;max-width: 200px;">
-                    <h2>${product.getName()}</h2>
-                    <p>${product.getCategory()}</p>
-                    <p><b>Size:</b></p>
-                    <h4>${product.getSize()}</h4>
-                    <h4><b>Price:</b></h4><br>
-                    <b><h3>${product.getPrice()} tg</h3></b>
+                    <h2>${book.getName()}</h2>
+                    <p>${book.getAuthor()}</p>
+                    <p><b>In Stock</b></p>
+                    <h4>${book.getStock()}</h4>
+
                     <div>
-                        <input type="checkbox" id="${product.getName()}" name="products" value="${product.getName()}">
-                        <label for="${product.getName()}">Add to Cart</label>
+                        <input type="checkbox" id="${book.getName()}" name="products" value="${book.getName()}">
+                        <label for="${book.getName()}">Add to Favorite</label>
+                        <c:if test="${cookie.role.value=='ADMIN'}">
+                            <button id="${book.getIsbn()}" class="btn btn-danger" onclick="deleteProduct(this.id)">
+                                Remove
+                            </button>
+
+                        </c:if>
                     </div>
 
 
@@ -79,12 +81,29 @@
 <jsp:include page="blocks/footer.jsp"/>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     function action(classname) {
         $("." + classname).removeClass("d-none");
         $('#row > *').not($('.' + classname)).addClass('d-none');
         $('#addtocart').removeClass('d-none');
+    }
+
+    function deleteProduct(idd) {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/assignment3_war/main",
+            data: {
+                reqValue: idd
+            },
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                alert("Success")
+            },
+            error: function (response, error, errorThrown) {
+                alert("Error")
+            }
+        });
     }
 </script>
 </html>
