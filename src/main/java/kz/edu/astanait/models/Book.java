@@ -84,6 +84,7 @@ public class Book implements Comparable<Book> {
                 '}';
     }
 
+
     @Override
     public int compareTo(Book o) {
         return this.stock - o.stock;

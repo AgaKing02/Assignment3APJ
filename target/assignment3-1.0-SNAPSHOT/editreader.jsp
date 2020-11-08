@@ -33,7 +33,7 @@
 <script>
     function removeReader(idd) {
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "http://localhost:8080/assignment3_war/remove",
             data: {
                 reqValue: idd

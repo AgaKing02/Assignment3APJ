@@ -17,6 +17,10 @@ import java.io.PrintWriter;
 public class EditReaderDetailed extends HttpServlet {
     private final UserRepository userRepository=new UserRepositoryImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
         response.setHeader("Cache-control", "no-cache, no-store");
@@ -36,9 +40,5 @@ public class EditReaderDetailed extends HttpServlet {
         myObj.addProperty("success",true);
         out.println(myObj.toString());
         out.close();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

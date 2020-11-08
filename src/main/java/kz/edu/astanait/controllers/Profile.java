@@ -44,7 +44,7 @@ public class Profile extends HttpServlet {
         //Displaying User name value from cookie
         for (Cookie cookie:cookies){
             if(cookie.getName().equals("username")){
-              request.setAttribute("username",cookie.getValue());
+              request.setAttribute("username",cookie.getValue());//username of user
               username=cookie.getValue();
               userExistence=true;
               break;

@@ -23,12 +23,12 @@ public class Authorization extends HttpServlet {
         if (checkUserExistence(userLoginData)) {
             Cookie cookie = new Cookie("username", userLoginData.getUsername());
             Cookie cookie1=new Cookie("role",userService.getUserByUsername(userLoginData.getUsername()).getRole());
-            Main.iHitCounter++;
+//            Main.iHitCounter++;
             response.addCookie(cookie);
             response.addCookie(cookie1);
             response.setContentType("text/html");
             PrintWriter printWriter = response.getWriter();
-            printWriter.print("<h1><a href='" + request.getContextPath() + "/profile'>Confirm " + userLoginData.getUsername() + " user </a></h1>");
+            printWriter.print("<h1><a id='confirm' href='" + request.getContextPath() + "/profile'>Confirm " + userLoginData.getUsername() + " user </a></h1>");
         } else {
             response.sendRedirect(request.getContextPath() + "/login?auth_error=true");
         }

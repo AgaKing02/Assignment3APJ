@@ -24,7 +24,7 @@ public class Authentication extends HttpServlet {
         java.util.Date date = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
         User user = new User();
-        user.setName(request.getParameter("txtName"));
+        user.setName(request.getParameter("txtName"));//<input name='txtName'>
         user.setUsername(request.getParameter("txtUsername"));
         user.setSurname(request.getParameter("txtSurname"));
         user.setPassword(request.getParameter("txtPassword"));
